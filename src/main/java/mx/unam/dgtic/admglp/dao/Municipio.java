@@ -2,13 +2,42 @@ package mx.unam.dgtic.admglp.dao;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "c_municipio")
 public class Municipio {
-	protected Integer id;
-	protected String clave;
-	protected String nombre;
-	protected Date fecRegistro; // Fecha de Inicio de acceso a la aplicacion
-	protected Date fecActualizacion; // Fecha de fin de acceso a la aplicacion
-	protected Integer estatus;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_municipio")
+	private Integer id;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_estado")
+	private Estado estado;
+	
+	@Column(name = "municipio_c_clave")
+	private String clave;
+	
+	@Column(name = "municipio_vc_nombre")
+	private String nombre;
+	
+	@Column(name = "municipio_dt_fecha_registro")
+	private Date fecRegistro; // Fecha de Inicio de acceso a la aplicacion
+	
+	@Column(name = "municipio_dt_fecha_actualizacion")
+	private Date fecActualizacion; // Fecha de fin de acceso a la aplicacion
+	
+	@Column(name = "municipio_si_estado")
+	private Integer estatus;
+	
 
 	public Municipio(Integer id, String clave, String nombre, Date fecRegistro, Date fecActualizacion,
 			Integer estatus) {
@@ -18,6 +47,15 @@ public class Municipio {
 		this.fecRegistro = fecRegistro;
 		this.fecActualizacion = fecActualizacion;
 		this.estatus = estatus;
+	}
+
+	public Municipio(String clave) {
+		super();
+		this.clave = clave;
+	}
+
+	public Municipio() {
+		super();
 	}
 
 	public Integer getId() {
@@ -66,6 +104,31 @@ public class Municipio {
 
 	public void setEstatus(Integer estatus) {
 		this.estatus = estatus;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Municipio other = (Municipio) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 	@Override

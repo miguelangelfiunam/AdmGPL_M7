@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import mx.unam.dgtic.admglp.dao.Usuario;
-import mx.unam.dgtic.admglp.repository.UsuarioRepository;
+import mx.unam.dgtic.admglp.dao.Municipio;
+import mx.unam.dgtic.admglp.repository.MunicipioRepository;
 
 @RestController
-@RequestMapping("/usu")
-public class UsuarioController {
+@RequestMapping("/mun")
+public class MunicipioController {
 
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private MunicipioRepository municipioRepository;
 
 	@GetMapping
-	public Iterable<Usuario> findAll(@RequestParam Map<String, String> parametros) {
-		Iterable<Usuario> usuarios = null;
+	public Iterable<Municipio> findAll(@RequestParam Map<String, String> parametros) {
+		Iterable<Municipio> municipios = null;
 		int leidos = 0;
 		if (leidos == 0) {
-			usuarios = usuarioRepository.findAll();
+			municipios = municipioRepository.findAll();
 		}
-		return usuarios;
+		return municipios;
 	}
-	
+
 	@GetMapping("/{idUsuario}")
-	public ResponseEntity<Usuario> buscarUsuario(@PathVariable Integer idUsuario) {
-		Optional<Usuario> optional = usuarioRepository.findById(idUsuario);
+	public ResponseEntity<Municipio> buscarMunicipio(@PathVariable Integer idUsuario) {
+		Optional<Municipio> optional = municipioRepository.findById(idUsuario);
 		if (optional.isPresent()) {
-			Usuario u = optional.get();
-			return new ResponseEntity<Usuario>(u, HttpStatus.OK);
+			Municipio m = optional.get();
+			return new ResponseEntity<Municipio>(m, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Municipio>(HttpStatus.NOT_FOUND);
 		}
 	}
 
