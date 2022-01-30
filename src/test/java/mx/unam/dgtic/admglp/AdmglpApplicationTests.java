@@ -9,11 +9,14 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 
 import mx.unam.dgtic.admglp.dao.Usuario;
 import mx.unam.dgtic.admglp.repository.UsuarioRepository;
 
 @SpringBootTest
+//@Sql({ "/V1.0.0__crea_base_admglp.sql", "/V1.0.1__inserta_datos_admglp.sql"})
+//Miguel Angel Martinez Rivera
 class AdmglpApplicationTests {
 
 	@Autowired
@@ -28,6 +31,6 @@ class AdmglpApplicationTests {
 		iterable.forEach(milista::add);
 		iterable.forEach(System.out::println);
 
-		assertThat(milista.size(), greaterThan(6));
+		assertThat(milista.size(), greaterThan(0));
 	}
 }

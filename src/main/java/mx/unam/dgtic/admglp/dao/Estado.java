@@ -36,7 +36,7 @@ public class Estado {
 	protected Integer estatus;
 	
 	@OneToMany(mappedBy = "estado")
-	List<Municipio> municipios = new ArrayList<Municipio>();;
+	List<Municipio> municipios = new ArrayList<Municipio>();
 
 	public Estado(Integer id, String clave, String nombre, Date fecRegistro, Date fecActualizacion, Integer estatus) {
 		super();

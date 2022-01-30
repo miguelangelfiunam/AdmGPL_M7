@@ -1,10 +1,7 @@
-#-----------------------------------------------------------------#
-#			Inserciones de estatus para diferentes tablas				#
-#-----------------------------------------------------------------#
 INSERT INTO c_estatus(
 estatus_si_num_estatus, estatus_vc_nom_tabla, estatus_vc_nombre_estatus, 
 estatus_vc_descripcion, estatus_dt_fecha_registro, estatus_dt_fecha_actualizacion, estatus_c_activo) 
-VALUES (10, "t_usuario", "activo", "Usuario activo en el sistema", NOW(), NULL, 1);
+VALUES (10, "t_usuario", "activo", "Usuario activo en el sistema",  NOW(), NULL, 1);
 
 INSERT INTO c_estatus(
 estatus_si_num_estatus, estatus_vc_nom_tabla, estatus_vc_nombre_estatus, 
@@ -231,9 +228,6 @@ estatus_si_num_estatus, estatus_vc_nom_tabla, estatus_vc_nombre_estatus,
 estatus_vc_descripcion, estatus_dt_fecha_registro, estatus_dt_fecha_actualizacion, estatus_c_activo) 
 VALUES (90, "t_pedido", "cancelado", "El cliente canceló su pedido", NOW(), NULL, 1);
 
-#-----------------------------------------------------------------#
-#			Inserciones de contraseñas para los usuarios					#
-#-----------------------------------------------------------------#
 INSERT INTO t_contra(contra_vc_contra_cifrado, contra_dt_fecha_registro, 
 contra_dt_fecha_actualizacion, contra_si_estatus) 
 VALUES ("dani123", NOW(), NULL, 10);
@@ -258,10 +252,6 @@ INSERT INTO t_contra(contra_vc_contra_cifrado, contra_dt_fecha_registro,
 contra_dt_fecha_actualizacion, contra_si_estatus) 
 VALUES ("mmartinez123", NOW(), NULL, 10);
 
-
-#-----------------------------------------------------------------#
-#			Inserciones de roles para los usuarios							#
-#-----------------------------------------------------------------#
 INSERT INTO c_rol(rol_vc_nombre, rol_c_tipo_rol, rol_dt_fecha_registro, rol_dt_fecha_actualizacion, rol_si_estatus) 
 VALUES ( "Administardor", 'A', NOW(), NULL, 10);
 
@@ -271,9 +261,6 @@ VALUES ( "Empleado", 'E', NOW(), NULL, 10);
 INSERT INTO c_rol(rol_vc_nombre, rol_c_tipo_rol, rol_dt_fecha_registro, rol_dt_fecha_actualizacion, rol_si_estatus) 
 VALUES ( "Cliente", 'C', NOW(), NULL, 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de usuarios												#
-#-----------------------------------------------------------------#
 INSERT INTO t_usuario(
 id_contra, usuario_vc_apodo, usuario_vc_correo1, usuario_vc_correo2, 
 usuario_vc_nombre, usuario_vc_apellido1, usuario_vc_apellido2, 
@@ -352,10 +339,6 @@ VALUES (
 NULL, NOW(), NULL, 
 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de relaciones 											#
-#			entre los usuarios y los roles									#
-#-----------------------------------------------------------------#
 INSERT INTO tr_usuario_rol(id_rol, id_usuario, usu_rol_dt_fecha_registro, usu_rol_dt_fecha_actualizacion, usu_rol_si_estatus) VALUES (2, 1, NOW(), NULL, 10);
 INSERT INTO tr_usuario_rol(id_rol, id_usuario, usu_rol_dt_fecha_registro, usu_rol_dt_fecha_actualizacion, usu_rol_si_estatus) VALUES (2, 2, NOW(), NULL, 10);
 INSERT INTO tr_usuario_rol(id_rol, id_usuario, usu_rol_dt_fecha_registro, usu_rol_dt_fecha_actualizacion, usu_rol_si_estatus) VALUES (2, 3, NOW(), NULL, 10);
@@ -363,9 +346,6 @@ INSERT INTO tr_usuario_rol(id_rol, id_usuario, usu_rol_dt_fecha_registro, usu_ro
 INSERT INTO tr_usuario_rol(id_rol, id_usuario, usu_rol_dt_fecha_registro, usu_rol_dt_fecha_actualizacion, usu_rol_si_estatus) VALUES (3, 5, NOW(), NULL, 10);
 INSERT INTO tr_usuario_rol(id_rol, id_usuario, usu_rol_dt_fecha_registro, usu_rol_dt_fecha_actualizacion, usu_rol_si_estatus) VALUES (1, 6, NOW(), NULL, 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de empleados											#
-#-----------------------------------------------------------------#
 INSERT INTO c_empleado(
 id_usuario, empleado_i_num_trab, empleado_i_numero_ss, 
 empleado_c_rfc_trab, empleado_dt_fecha_registro, empleado_dt_fecha_actualizacion, 
@@ -384,9 +364,6 @@ empleado_c_rfc_trab, empleado_dt_fecha_registro, empleado_dt_fecha_actualizacion
 empleado_si_estatus) 
 VALUES (3, 654321, '07-96-60-9645-8', 'PARM600402AR2', NOW(), NULL, 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de clientes												#
-#-----------------------------------------------------------------#
 INSERT INTO c_cliente(
 id_usuario, cliente_i_numero, cliente_dt_fecha_registro, 
 cliente_dt_fecha_actualizacion, cliente_si_estatus) 
@@ -397,9 +374,6 @@ id_usuario, cliente_i_numero, cliente_dt_fecha_registro,
 cliente_dt_fecha_actualizacion, cliente_si_estatus) 
 VALUES (5, 2, NOW(), NULL, 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de estados												#
-#-----------------------------------------------------------------#
 INSERT INTO c_estado(estado_c_clave, estado_vc_nombre, estado_dt_fecha_registro, 
 estado_dt_fecha_actualizacion, estado_si_estatus) 
 VALUES ('01', "Aguascalientes", NOW(), NULL, 20);
@@ -460,9 +434,6 @@ INSERT INTO c_estado(estado_c_clave, estado_vc_nombre, estado_dt_fecha_registro,
 estado_dt_fecha_actualizacion, estado_si_estatus) 
 VALUES ('15', "México", NOW(), NULL, 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de municipios											#
-#-----------------------------------------------------------------#
 INSERT INTO c_municipio(id_estado, municipio_c_clave, municipio_vc_nombre, municipio_dt_fecha_registro, municipio_dt_fecha_actualizacion, municipio_si_estado) 
 VALUES (15, '106', "Toluca", NOW(), NULL, 20);
 INSERT INTO c_municipio(id_estado, municipio_c_clave, municipio_vc_nombre, municipio_dt_fecha_registro, municipio_dt_fecha_actualizacion, municipio_si_estado) 
@@ -470,9 +441,6 @@ VALUES (15, '001', "Acambay de Ruíz Castañeda", NOW(), NULL, 20);
 INSERT INTO c_municipio(id_estado, municipio_c_clave, municipio_vc_nombre, municipio_dt_fecha_registro, municipio_dt_fecha_actualizacion, municipio_si_estado) 
 VALUES (15, '121', "Cuautitlán Izcalli", NOW(), NULL, 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de asentamientos										#
-#-----------------------------------------------------------------#
 INSERT INTO c_asentamiento(
 id_municipio, asenta_c_clave, asenta_c_codigo_postal, asenta_vc_tipo, asenta_vc_nombre, asenta_dt_fecha_registro, asenta_dt_fecha_actualizacion, asenta_si_estatus) 
 VALUES (3, '3050', '54700', "Colonia", "Cuautitlán Izcalli Centro Urbano", NOW(), NULL, 10);
@@ -501,9 +469,6 @@ INSERT INTO c_asentamiento(
 id_municipio, asenta_c_clave, asenta_c_codigo_postal, asenta_vc_tipo, asenta_vc_nombre, asenta_dt_fecha_registro, asenta_dt_fecha_actualizacion, asenta_si_estatus) 
 VALUES (3, '6507', '54743', "Unidad habitacional", "Campo 1", NOW(), NULL, 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de direcciones											#
-#-----------------------------------------------------------------#
 INSERT INTO t_direccion(
 id_asentamiento, direccion_vc_nombre, direccion_vc_referencias, 
 direccion_dt_fecha_registro, direccion_dt_fecha_actualizacion, direccion_si_estatus) 
@@ -517,9 +482,6 @@ id_asentamiento, direccion_vc_nombre, direccion_vc_referencias,
 direccion_dt_fecha_registro, direccion_dt_fecha_actualizacion, direccion_si_estatus) 
 VALUES (4, "Calle Torre Primavera Mzna 200 Lote 25", "Árbol de naranjas", NOW(), NULL, 10);
 
-#-----------------------------------------------------------------#
-#			Inserciones de relaciones de direcciones con clientes		#
-#-----------------------------------------------------------------#
 INSERT INTO tr_cliente_direccion(id_cliente, id_direccion, cli_dir_dt_fecha_registro, cli_dir_dt_fecha_actualizacion, cli_dir_si_estatus) VALUES (1, 1, NOW(), NULL, 10);
 INSERT INTO tr_cliente_direccion(id_cliente, id_direccion, cli_dir_dt_fecha_registro, cli_dir_dt_fecha_actualizacion, cli_dir_si_estatus) VALUES (1, 2, NOW(), NULL, 10);
 INSERT INTO tr_cliente_direccion(id_cliente, id_direccion, cli_dir_dt_fecha_registro, cli_dir_dt_fecha_actualizacion, cli_dir_si_estatus) VALUES (2, 3, NOW(), NULL, 10);

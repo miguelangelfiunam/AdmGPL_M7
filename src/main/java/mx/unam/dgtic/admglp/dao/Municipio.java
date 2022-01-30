@@ -1,6 +1,8 @@
 package mx.unam.dgtic.admglp.dao;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,6 +40,9 @@ public class Municipio {
 	
 	@Column(name = "municipio_si_estado")
 	private Integer estatus;
+	
+	@OneToMany(mappedBy = "municipio")
+	private List<Asentamiento> asentamientos = new ArrayList<Asentamiento>();
 	
 
 	public Municipio(Integer id, String clave, String nombre, Date fecRegistro, Date fecActualizacion,
